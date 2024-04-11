@@ -416,4 +416,73 @@ function kubrick_theme_page()
         </div>
     </div>
 </div>
-<?php } ?>
+<?php }
+
+if (! function_exists('recent_posts') ) {
+    function recent_posts( $args = array() )
+    {
+        $defaults = array(
+        'post_type'      => 'post',
+        'post__not_in'   => array(get_the_ID()),
+        'posts_per_page' => 5,
+        'orderby'        => 'date',
+
+        // For performance
+        'no_found_rows'          => true,
+        'update_post_meta_cache' => false,
+        'update_post_term_cache' => false
+        );
+        $args = wp_parse_args($args, $defaults);
+        $output = array();
+        $the_query = new WP_Query($args);
+        if ($the_query->have_posts() ) :
+            while ($the_query->have_posts()) {
+                $the_query->the_post();
+                $html = '<li><a href="%s" rel="bookmark">%s</a></li>';
+                $output[] = sprintf(
+                    $html,
+                    esc_url(get_the_permalink()),
+                    get_the_title()
+                );
+            }
+            wp_reset_postdata();
+        endif;
+
+		echo '<ul>' . implode( "\n\n", $output ) . '</ul>';
+    }
+}
+
+if (! function_exists('related_posts') ) {
+    function related_posts( $args = array() )
+    {
+        $defaults = array(
+            'post_type'      => 'post',
+            'category__in'   => wp_get_post_categories( get_the_ID() ),
+            'post__not_in'   => array( get_the_ID() ),
+            'posts_per_page' => 5,
+            'orderby'        => 'date',
+
+            // For performance
+            'no_found_rows'          => true,
+            'update_post_meta_cache' => false,
+            'update_post_term_cache' => false
+        );
+        $args = wp_parse_args($args, $defaults);
+        $output = array();
+        $the_query = new WP_Query($args);
+        if ($the_query->have_posts() ) :
+            while ($the_query->have_posts()) {
+                $the_query->the_post();
+                $html = '<li><a href="%s" rel="bookmark">%s</a></li>';
+                $output[] = sprintf(
+                    $html,
+                    esc_url(get_the_permalink()),
+                    get_the_title()
+                );
+            }
+            wp_reset_postdata();
+        endif;
+
+		echo '<ul>' . implode( "\n\n", $output ) . '</ul>';
+    }
+}
