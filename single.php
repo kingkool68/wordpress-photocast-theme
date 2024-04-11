@@ -18,34 +18,34 @@ google_ui_features = "rc:6";
 <script type="text/javascript"
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script></div>
-	<div id="content" class="widecolumn">
-				
+    <div id="content" class="widecolumn">
+
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	
-		<div class="post" id="post-<?php the_ID(); ?>">
-			<span class="post-date"><?php the_time('F jS, Y') ?> <!-- by <?php the_author() ?> --></span>
-			<h2><a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php the_title(); ?></a></h2>
-	
-			<div class="entrytext">
-				<?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
-	
-				<?php link_pages('<p><strong>Pages:</strong> ', '</p>', 'number'); ?>
-			
-			</div>
-		<p class="postmetadata alt">
-					Posted at <?php the_time('g:i a') ?> in <?php the_category(', ') ?> 
-						
-						<br /><?php edit_post_link('Edit this entry.','',''); ?>
-				</p>
-		<div id="related-content">
-  
-			<div id="related-links">            
-        	<h5>Related Posts</h5>
-			<?php similar_posts(); ?>
+
+        <div class="post" id="post-<?php the_ID(); ?>">
+            <span class="post-date"><?php the_time('F jS, Y') ?> <!-- by <?php the_author() ?> --></span>
+            <h2><a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php the_title(); ?></a></h2>
+
+            <div class="entrytext">
+            <?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
+
+            <?php wp_link_pages('<p><strong>Pages:</strong> ', '</p>', 'number'); ?>
+
+            </div>
+        <p class="postmetadata alt">
+                    Posted at <?php the_time('g:i a') ?> in <?php the_category(', ') ?>
+
+                        <br /><?php edit_post_link('Edit this entry.', '', ''); ?>
+                </p>
+        <div id="related-content">
+
+            <div id="related-links">
+            <h5>Related Posts</h5>
+            <?php related_posts(); ?>
             <h5>Recent Posts</h5>
-			<?php recent_posts(); ?>
-        	</div>
-                  	<div id="ads">
+            <?php recent_posts(); ?>
+            </div>
+                      <div id="ads">
             <script type="text/javascript"><!--
 google_ad_client = "pub-9571026409625337";
 google_ad_width = 300;
@@ -64,16 +64,16 @@ google_color_url = "0099FF";
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
             </div>
-		</div>
-		</div>
-		
-	<?php comments_template(); ?>
-	
-	<?php endwhile; else: ?>
-	
-		<p>Sorry, no posts matched your criteria.</p>
-	
-<?php endif; ?>
-	</div>
+        </div>
+        </div>
+
+            <?php comments_template(); ?>
+
+  <?php endwhile; else: ?>
+
+        <p>Sorry, no posts matched your criteria.</p>
+
+  <?php endif; ?>
+    </div>
 
 <?php get_footer(); ?>

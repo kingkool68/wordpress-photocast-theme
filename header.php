@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<link rel="shortcut icon" href="http://www.russellheimlich.com/favicon.ico" />
+<link rel="shortcut icon" href="<?php echo esc_url(get_site_url()); ?>/favicon.ico" />
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
 <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
@@ -16,9 +16,9 @@
 <body>
 <div class="container">
 <div class="header">
-	<div id="headerimg">
-		<!--h1><a href="<?php echo get_settings('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
-		<div class="description"><?php bloginfo('description'); ?></div-->
-		<a href="<?php bloginfo('url'); ?>"><img src="http://www.russellheimlich.com/images/layout/header-title.gif" /></a>
-	</div>
+    <div id="headerimg">
+        <!--h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
+        <div class="description"><?php bloginfo('description'); ?></div-->
+        <a href="<?php bloginfo('url'); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/header-title.gif" /></a>
+    </div>
 </div>

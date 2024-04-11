@@ -1,7 +1,7 @@
 <?php
-/*
-Template Name: Links
-*/
+/**
+ * Template Name: Links
+ */
 ?>
 
 <?php get_header(); ?>
@@ -10,9 +10,9 @@ Template Name: Links
 
 <h2>Links:</h2>
 <ul>
-<?php get_links_list(); ?>
+    <?php wp_list_bookmarks(); ?>
 </ul>
 
-</div>	
+</div>
 
 <?php get_footer(); ?>
