@@ -239,7 +239,7 @@ div.code {
 .container {
     width: 770px;
     margin: 0px auto;
-    background-image: url(http://www.russellheimlich.com/images/layout/shadow.jpg);
+    background-image: url(images/shadow.jpg);
     background-repeat: repeat-y;
     background-position: center;
 }
@@ -282,7 +282,7 @@ pre {
 
 /*---Header-------------------------------------------------------------------------------------------*/
 .header {
-    background-image: url(http://www.russellheimlich.com/images/layout/header-bg.gif);
+    background-image: url(images/header-bg.gif);
     background-repeat: repeat-x;
     margin: 0px auto;
     width: 742px;
@@ -305,7 +305,7 @@ pre {
 .footer {
     clear: both;
     position: relative;
-    background-image: url(http://www.russellheimlich.com/images/layout/footer.jpg);
+    background-image: url(images/footer.jpg);
     background-position: center;
     background-repeat: no-repeat;
     height: 80px;
