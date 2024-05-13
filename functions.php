@@ -486,3 +486,5 @@ if (! function_exists('related_posts') ) {
 		echo '<ul>' . implode( "\n\n", $output ) . '</ul>';
     }
 }
+
+add_theme_support( 'title-tag' );
